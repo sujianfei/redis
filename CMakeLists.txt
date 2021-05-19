@@ -113,6 +113,7 @@ set(SRC_SERVER src/server.c ${SRC_SERVER_TMP})
 set(SRC_CLI
         src/anet.c src/sds.c src/adlist.c src/redis-cli.c src/zmalloc.c
         src/release.c src/anet.c src/ae.c src/crc64.c
+        src/dict.c src/crc16.c src/crc64.c  src/mt19937-64.c src/crcspeed.c  src/siphash.c
         )
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     # better not to work with jemalloc

@@ -121,7 +121,7 @@ dict *dictCreate(dictType *type,
 int _dictInit(dict *d, dictType *type,
         void *privDataPtr)
 {
-    _dictReset(&d->ht[0]);
+    _dictReset(&d->ht[0]);    // &(d->ht[0])
     _dictReset(&d->ht[1]);
     d->type = type;
     d->privdata = privDataPtr;
@@ -998,7 +998,7 @@ static long _dictKeyIndex(dict *d, const void *key, uint64_t hash, dictEntry **e
     if (existing) *existing = NULL;
 
     /* Expand the hash table if needed */
-    if (_dictExpandIfNeeded(d) == DICT_ERR)
+    if (_dictExpandIfNeeded(d) == DICT_ERR)    //?
         return -1;
     for (table = 0; table <= 1; table++) {
         idx = hash & d->ht[table].sizemask;

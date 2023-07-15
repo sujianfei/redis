@@ -229,11 +229,11 @@
 /* Return total bytes a ziplist is composed of. */
 #define ZIPLIST_BYTES(zl)       (*((uint32_t*)(zl)))
 
-/* Return the offset of the last item inside the ziplist. */
+/* Return the offset of the last item inside the ziplist. */      // zltail里面存的值
 #define ZIPLIST_TAIL_OFFSET(zl) (*((uint32_t*)((zl)+sizeof(uint32_t))))
 
 /* Return the length of a ziplist, or UINT16_MAX if the length cannot be
- * determined without scanning the whole ziplist. */
+ * determined without scanning the whole ziplist. */            //zllen 存的值
 #define ZIPLIST_LENGTH(zl)      (*((uint16_t*)((zl)+sizeof(uint32_t)*2)))
 
 /* The size of a ziplist header: two 32 bit integers for the total
